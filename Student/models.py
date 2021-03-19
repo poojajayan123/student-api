@@ -4,7 +4,7 @@ from django.contrib.auth.models import User, AbstractUser
 
 
 class StudentUser(AbstractUser):
-    temp_password = models.CharField(max_length=10)
+    temp_password = models.CharField(max_length=10,null=True,blank=True)
 
     class Meta:
         db_table = 'StudentUser'
