@@ -1,3 +1,5 @@
+import hashlib
+from passlib.hash import pbkdf2_sha256
 
 # PUNCTUATION = string.punctuation 
 
@@ -13,6 +15,11 @@ def password_generator(length):
 
     random_password = random.choices(printable, k=length)
     random_password = ''.join(random_password)
+
+    # sha_signature = pbkdf2_sha256.hash("random_password")
+    # return sha_signature
+    print(random_password)
+
     return random_password
 
 

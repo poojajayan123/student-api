@@ -22,6 +22,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'rest_framework.authtoken',
 
     'Student',
     'polls',
@@ -40,7 +41,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'MongoDbMap.urls'
 
-AUTH_USER_MODEL = "Student.StudentUser"
+# AUTH_USER_MODEL = "Student.StudentUser"
 
 TEMPLATES = [
     {
@@ -85,7 +86,8 @@ AUTHENTICATION_BACKENDS = (
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         # 'rest_framework.authentication.SessionAuthentication',
-        'rest_framework.authentication.BasicAuthentication',
+        # 'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.TokenAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.AllowAny',
@@ -126,7 +128,9 @@ USE_L10N = True
 
 USE_TZ = True
 
-
+PASSWORD_HASHERS = [
+    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+]
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
